@@ -1,6 +1,5 @@
 import os
 
-
 def toDolistFunc():
     action = ''
     path = 'toDoList.txt'
