@@ -2,10 +2,10 @@ import os
 
 def toDolistFunc():
     action = ''
-    path = 'toDoList.txt'
+    file_name = 'toDoList.txt'
 
-    if os.path.isfile(path):
-        with open(path) as f:
+    if os.path.isfile(file_name):
+        with open(file_name) as f:
             toDoList = f.read().splitlines()
     else:
         toDoList = []
@@ -34,7 +34,7 @@ def toDolistFunc():
             except ValueError:
                 print("There's no element with this name")
         elif action == 'save':
-            with open(path, 'w') as f:
+            with open(file_name, 'w') as f:
                 f.writelines(line + '\n' for line in toDoList)
         else:
             print('try again')

@@ -1,8 +1,5 @@
-waiting_list = ["john", "marry"]
-name = input("Enter name: ")
+def speed(distance, time):
+    return distance / time
 
-try:
-    number = waiting_list.index(name)
-    print(f"{name}'s turn is {number}")
-except ValueError:
-    print(f'{name} is not in the list')
+
+print(speed(200, 4))
