@@ -1,5 +1,5 @@
-def speed(distance, time):
-    return distance / time
+from bonus1_mod import get_state_water
 
 
-print(speed(200, 4))
+temp = input('Enter water temperature: ')
+print(get_state_water(int(temp)))

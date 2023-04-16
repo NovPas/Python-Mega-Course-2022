@@ -1,14 +1,10 @@
-import os
+from list_io import read_list, save_list
 
-def toDolistFunc():
+
+def todo_list_func():
     action = ''
-    file_name = 'toDoList.txt'
 
-    if os.path.isfile(file_name):
-        with open(file_name) as f:
-            toDoList = f.read().splitlines()
-    else:
-        toDoList = []
+    toDoList = read_list()
 
     while action != 'exit':
 
@@ -34,8 +30,7 @@ def toDolistFunc():
             except ValueError:
                 print("There's no element with this name")
         elif action == 'save':
-            with open(file_name, 'w') as f:
-                f.writelines(line + '\n' for line in toDoList)
+            save_list(toDoList)
         else:
             print('try again')
 
@@ -48,4 +43,4 @@ def get_command(string):
 
 
 if __name__ == '__main__':
-    toDolistFunc()
+    todo_list_func()
