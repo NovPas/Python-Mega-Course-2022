@@ -1,5 +1,7 @@
-from bonus1_mod import get_state_water
+import random
 
 
-temp = input('Enter water temperature: ')
-print(get_state_water(int(temp)))
+lbound = input('Enter the lower bound: ')
+hbound = input('Enter the higher bound: ')
+
+print(random.randrange(int(lbound), int(hbound)+1))
