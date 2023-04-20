@@ -7,6 +7,7 @@ class TodoList:
         self.controller = TodoListController(self)
         self.listbox = tk.Listbox(master)
         self.listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        self.listbox.bind('<<ListboxSelect>>', self.on_select)
 
         self.button_frame = tk.Frame(master)
         self.button_frame.pack(side=tk.RIGHT, fill=tk.BOTH, padx=10, pady=10)
@@ -45,6 +46,12 @@ class TodoList:
         self.listbox.delete(index)
         self.listbox.insert(index, item)
 
+    def on_select(self, event):
+        # Get the selected value from the listbox
+        selected_value = self.listbox.get(self.listbox.curselection())
+        # Set the value of the entry field to the selected value
+        self.entry.delete(0, tk.END)
+        self.entry.insert(0, selected_value)
 
 if __name__ == '__main__':
     root = tk.Tk()
