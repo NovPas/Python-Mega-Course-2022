@@ -5,8 +5,8 @@ from backend import TodoListController
 class TodoList:
     def __init__(self, master):
         self.controller = TodoListController(self)
-        self.listbox = tk.Listbox(master)
-        self.listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        self.listbox = tk.Listbox(master, height=3)
+        self.listbox.pack(side=tk.LEFT, fill=tk.BOTH)
         self.listbox.bind('<<ListboxSelect>>', self.on_select)
 
         self.button_frame = tk.Frame(master)

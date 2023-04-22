@@ -1,5 +1,5 @@
 import pickle
-
+import os
 
 class TodoListController:
     def __init__(self, view):
@@ -8,8 +8,12 @@ class TodoListController:
         self.load_list()
 
     def load_list(self):
-        with open("todo_list.pkl", "rb") as file:
-            self.todo_list = pickle.load(file)
+
+        if os.path.exists('todo_list.pkl'):
+            with open("todo_list.pkl", "rb") as file:
+                self.todo_list = pickle.load(file)
+        else:
+            self.todo_list = []
 
     def save_list(self):
         with open("todo_list.pkl", "wb") as file:
