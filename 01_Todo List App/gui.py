@@ -1,9 +1,11 @@
 import tkinter as tk
+from tkinter import ttk
 from backend import TodoListController
 
 
 class TodoList:
     def __init__(self, master):
+        self.master = master
         self.controller = TodoListController(self)
         self.listbox = tk.Listbox(master, height=3)
         self.listbox.pack(side=tk.LEFT, fill=tk.BOTH)
@@ -11,6 +13,11 @@ class TodoList:
 
         self.button_frame = tk.Frame(master)
         self.button_frame.pack(side=tk.RIGHT, fill=tk.BOTH, padx=10, pady=10)
+
+        self.img = tk.PhotoImage(file="switchtheme.png")
+        self.theme_button = tk.Button(self.button_frame, image=self.img, bd=0, command=self.toggle_theme, width=20, height=10)
+        self.theme_button.place(relx=1.0, x=-10, y=10, anchor="ne")
+        self.theme_button.pack()
 
         self.entry = tk.Entry(self.button_frame)
         self.entry.pack()
@@ -23,6 +30,8 @@ class TodoList:
 
         self.delete_button = tk.Button(self.button_frame, text="Delete Item", command=self.controller.delete_item)
         self.delete_button.pack(fill=tk.BOTH, pady=5)
+
+        self.theme = 'default'
 
         self.controller.refresh_listbox()
 
@@ -52,6 +61,18 @@ class TodoList:
         # Set the value of the entry field to the selected value
         self.entry.delete(0, tk.END)
         self.entry.insert(0, selected_value)
+
+    def toggle_theme(self):
+        if self.theme == 'default':
+            self.theme_button.configure(text='Switch to Default Theme', fg='white')
+            self.theme = 'dark'
+            self.master.tk_setPalette(background='black', foreground='white')
+
+        else:
+            self.theme_button.configure(text='Switch to Dark Theme', fg='black')
+            self.theme = 'default'
+            self.master.tk_setPalette(background='white', foreground='black')
+
 
 if __name__ == '__main__':
     root = tk.Tk()
