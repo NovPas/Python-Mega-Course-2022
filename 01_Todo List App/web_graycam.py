@@ -12,13 +12,18 @@ def show_gray_image(image):
 
 st.subheader("Color to Grayscale Converter")
 
-with st.expander("Upload Image"):
-    uploaded_image = st.file_uploader("Select Image", type=['png', 'jpg'])
+option_image = st.radio(
+    "Choose a variant",
+    ('Disk', 'Camera'))
 
-with st.expander("Start camera"):
-    camera_image = st.camera_input("Camera")
+if option_image == 'Disk':
+    with st.expander("Upload Image"):
+        image = st.file_uploader("Select Image", type=['png', 'jpg'])
 
-show_gray_image(uploaded_image)
-show_gray_image(camera_image)
+else:
+    with st.expander("Start camera"):
+        image = st.camera_input("Camera")
+
+show_gray_image(image)
 
 # st.session_state
