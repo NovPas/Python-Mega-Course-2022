@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 
+
 def fill_column(col, df_needable):
     with col:
         for index, row in df_needable:
