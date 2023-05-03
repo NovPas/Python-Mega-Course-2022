@@ -13,4 +13,4 @@ links = soup.find_all('p')
 result = soup.find('div', {'class': 'article__body', 'itemprop': 'articleBody'})
 
 email_mod.send('Anecdot', f'Anecdots of {current_date}', result.text)
-print(result.text)
+
