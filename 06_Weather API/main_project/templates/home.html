@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Data API</title>
+</head>
+<body>
+<h1>Weather Data API</h1>
+<p>URL format: server_name/api/v1/station/date</p>
+<p>URL example: http://127.0.0.1:5000/api/v1/MOSKVA VDNX/20220531</p>
+<p>URL example: http://127.0.0.1:5000/api/v1/MOSKVA VDNX</p>
+
+  {% for table in tables %}
+    <h2>Stations data</h2>
+    {{ table|safe }}
+  {% endfor %}
+
+</body>
+</html>
