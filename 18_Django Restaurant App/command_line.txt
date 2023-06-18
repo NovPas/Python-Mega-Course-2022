@@ -2,4 +2,4 @@ django-admin.exe startproject mysite .
 python manage.py startapp restaurant_menu
 python .\manage.py makemigrations
 python .\manage.py migrate
-
+python manage.py createsuperuser
